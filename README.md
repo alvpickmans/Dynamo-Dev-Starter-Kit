@@ -1,6 +1,6 @@
 # Dynamo Development Starter Kit
 
-The set up of a project aiming the [Dynamo](http://dynamobim.org/) platform can be hard and frustating if not use to it. This project is a Visual Studio Extension (VSIX) containing templates for the set up of [Dynamo](http://dynamobim.org/) package projects, providing boilerplates so you can just start developing your stuff.
+The set up of a project aiming the [Dynamo](http://dynamobim.org/) platform can be hard and frustating if not used to it. This project is a Visual Studio Extension (VSIX) containing templates for the set up of [Dynamo](http://dynamobim.org/) package projects, providing boilerplates so you can just start developing your stuff.
 
 ## Installation
 
