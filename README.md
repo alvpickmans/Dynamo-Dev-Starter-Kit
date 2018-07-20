@@ -12,7 +12,7 @@ Having the project downloaded and Visual Studio totally closed, execute the `.vs
 
 - Within Visual Studio, create a new project. Under Visual C#, you should have two new templates: `Dynamo Template - ZeroTouch` and `Dynamo Template - Explicit Node`.
 - Fill in the parameters of your projects, seing on the panel on the rigth a preview of the `pkg.json` file that will get generated.
-- Once accepted, it will pull all the necessary Nuget packages.
+- Once accepted, it will pull all the necessary Nuget packages. Internet connection is therefore required.
 - Remember to set all references to `copy local = false` before start debugging.
 
 ![Usage](assets/images/usage.gif)
