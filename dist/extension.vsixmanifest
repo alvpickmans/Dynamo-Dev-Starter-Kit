@@ -1,0 +1,21 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="DynamoDev.StarterKitExtension.b47d2e9b-bb1a-412b-baed-645a1061c43d" Version="1.0" Language="en-US" Publisher="Álvaro Ortega Pickmans" />
+    <DisplayName>Dynamo Dev Starter Kit</DisplayName>
+    <Description xml:space="preserve">Visual Studio Extension providing templates for the setup of Dynamo Visual Programming package projects.</Description>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0]" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="DynamoDev.StarterKitExtension.dll" AssemblyName="DynamoDev.StarterKitExtension, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9ab483fc762af72c" />
+    <Asset Type="Microsoft.VisualStudio.Assembly" Path="NuGet.Core.dll" AssemblyName="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates" />
+  </Assets>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>
