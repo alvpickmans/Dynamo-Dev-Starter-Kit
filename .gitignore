@@ -262,6 +262,3 @@ __pycache__/
 
 # Ignoring solutions for now
 *.sln
-DynamoDev.ExplicitNode/
-DynamoDev.StarterKitExtension/
-DynamoDev.ZeroTouch/
