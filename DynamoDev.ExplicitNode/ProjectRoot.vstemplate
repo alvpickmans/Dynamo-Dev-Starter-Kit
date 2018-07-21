@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Dynamo Template - Explicit Nodes</Name>
+    <Description>Dynamo Development Explicit Nodes Package Template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Dynamo_ExplicitNodes</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>DynamoDev.ExplicitNode.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="$projectname$">
+        ExplicitNode\ExplicitNode.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$projectname$.Functions">
+        ExplicitNode.Functions\ExplicitNode.Functions.vstemplate
+      </ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>DynamoDev.StarterKitExtension, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9ab483fc762af72c</Assembly>
+    <FullClassName>DynamoDev.StarterKitExtension.WizardRoot</FullClassName>
+  </WizardExtension>
+</VSTemplate>

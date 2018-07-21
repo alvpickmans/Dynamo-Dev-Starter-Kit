@@ -1,0 +1,20 @@
+﻿{
+  "license": "",
+  "file_hash": null,
+  "name": "$packageName$",
+  "version": "$packageVersion$",
+  "description": "$packageDescription$",
+  "group": "",
+  "keywords": null,
+  "dependencies": [],
+  "contents": "",
+  "engine_version": "$engineVersion$",
+  "engine": "dynamo",
+  "engine_metadata": "",
+  "site_url": "$siteUrl$",
+  "repository_url": "$repoUrl$",
+  "contains_binaries": true,
+  "node_libraries": [
+    $nodeLibraries$
+  ]
+}

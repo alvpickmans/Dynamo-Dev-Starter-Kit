@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>ExplicitNode</Name>
+    <Description>ExplicitNode</Description>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>1d691684-8a64-449a-a302-cfd67cef591c</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ExplicitNode</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ExplicitNode.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="HelloButton.xaml.cs">HelloButton.xaml.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="HelloButtonxaml">HelloButton.xaml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUI.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUINodeView.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">packages.init</ProjectItem>
+      <Folder Name="dist" TargetFolderName="dist" />
+      <Folder Name="manifests" TargetFolderName="manifests">
+        <ProjectItem ReplaceParameters="true" TargetFileName="pkg.json">pkg.json</ProjectItem>
+      </Folder>
+      <!--<Folder Name="src" TargetFolderName="src">
+      </Folder>-->
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>DynamoDev.StarterKitExtension, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9ab483fc762af72c</Assembly>
+    <FullClassName>DynamoDev.StarterKitExtension.WizardCustomNodeChild</FullClassName>
+  </WizardExtension>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <!--<WizardData>
+    <packages>
+      <package id="DynamoVisualProgramming.Core" version="$dynamoVersion$" targetFramework="net461" />
+      <package id="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$" targetFramework="net461" />
+      <package id="DynamoVisualProgramming.WpfUILibrary" version="$dynamoVersion$" targetFramework="net461" />
+      <package id="DynamoVisualProgramming.ZeroTouchLibrary" version="$dynamoVersion$" targetFramework="net461" />
+    </packages>
+  </WizardData>-->
+</VSTemplate>

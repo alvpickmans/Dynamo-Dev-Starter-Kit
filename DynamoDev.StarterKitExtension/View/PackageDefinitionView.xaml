@@ -1,0 +1,67 @@
+﻿<Window x:Class="DynamoDev.StarterKitExtension.PackageDefinitionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DynamoDev.StarterKitExtension"
+            PreviewKeyDown="HandleEsc"
+             mc:Ignorable="d"
+             Title="Dynamo Dev - Package Definition"
+             d:DesignHeight="450" MinWidth="800" MinHeight="450" Width="775">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" Margin="10,35,10,10" TextWrapping="Wrap" ScrollViewer.CanContentScroll="True">
+            <Span Foreground="Black"><Run Text="{}{"/></Span><LineBreak/><Span Foreground="Black"></Span>
+            <Span Foreground="#FF2E75B6"><Run Text="&quot;license&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="&quot;&quot;"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;file_hash&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="Blue"><Run Text="null"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;name&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="{Binding PackageName, StringFormat='&quot;{0}&quot;'}"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;version&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="{Binding PackageVersion, Mode=OneWay, StringFormat='&quot;{0}&quot;'}"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;description&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><TextBlock TextWrapping="Wrap" Text="{Binding PackageDescription, StringFormat='&quot;{0}&quot;'}"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;group&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="&quot;&quot;"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;keywords&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="Blue"><Run Text="null"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;dependencies&quot;"/></Span><Span Foreground="Black"><Run Text=": [],"/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;contents&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="&quot;&quot;"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;engine_version&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="{Binding EngineVersion, StringFormat='&quot;{0}&quot;'}"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;engine&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="&quot;dynamo&quot;"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;engine_metadata&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="&quot;&quot;"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;site_url&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="{Binding SiteUrl, StringFormat='&quot;{0}&quot;'}"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;repository_url&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="#FFA31515"><Run Text="{Binding RepoUrl, StringFormat='&quot;{0}&quot;'}"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;contains_binaries&quot;"/></Span><Span Foreground="Black"><Run Text=": "/></Span><Span Foreground="Blue"><Run Text="true"/></Span><Span Foreground="Black"><Run Text=","/></Span><LineBreak/>
+            <Span Foreground="Black"><Run Text="  "/></Span><Span Foreground="#FF2E75B6"><Run Text="&quot;node_libraries&quot;"/></Span><Span Foreground="Black"><Run Text=": ["/></Span><LineBreak/><Span Foreground="Black"><Run Text="    "/></Span><Span Foreground="#FFA31515"><Run Text="{Binding NodeLibraries, Mode=OneWay, StringFormat=' {0}'}"/></Span><LineBreak/><Span Foreground="Black"><Run Text="  ]"/></Span><LineBreak/><Span Foreground="Black"><Run Text="}"/></Span></TextBlock>
+        <GridSplitter HorizontalAlignment="Left"  Width="5" Grid.Column="1"/>
+        <StackPanel Margin="10,35,0,10" CanVerticallyScroll="True" HorizontalAlignment="Left" Width="307">
+            <TextBlock Text="Package Name"/>
+            <TextBox Text="{Binding PackageName}" Margin="10,0" />
+            <TextBlock Text="Package Version" Margin="0,10,0,0"/>
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Major" DockPanel.Dock="Left" Margin="10,0"/>
+                <TextBox Text="{Binding VersionMajor}" DockPanel.Dock="Left" Width="30" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox"/>
+                <TextBlock Text="Minor" DockPanel.Dock="Left" Margin="10,0"/>
+                <TextBox Text="{Binding VersionMinor}" DockPanel.Dock="Left" Width="30" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox"/>
+                <TextBlock Text="Patch" DockPanel.Dock="Left" Margin="10,0"/>
+                <TextBox Text="{Binding VersionPatch}" DockPanel.Dock="Left" Width="30" HorizontalAlignment="Center" PreviewTextInput="NumberValidationTextBox"/>
+            </DockPanel>
+            <TextBlock Text="Package Description" Margin="0,10,0,0" />
+            <TextBox Height="100" Text="{Binding PackageDescription}" TextWrapping="Wrap" AcceptsReturn="True" Margin="10,0"/>
+            <TextBlock Text="Dynamo Version" Margin="0,10,0,0"/>
+            <ComboBox x:Name="engineVersions" Text="{Binding DynamoVersion}" Margin="10,0" />
+            <TextBlock Text="Site Url" Margin="0,10,0,0"/>
+            <TextBox Text="{Binding SiteUrl}" Margin="10,0" />
+            <TextBlock Text="Repository Url" Margin="0,10,0,0"/>
+            <TextBox Text="{Binding RepoUrl}" Margin="10,0" />
+        </StackPanel>
+        <DockPanel LastChildFill="False" Margin="0,0,10,0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"  VerticalAlignment="Center">
+            <Button x:Name="btn_Accept" Content="Accept" Height="30" VerticalAlignment="Center" Width="75" HorizontalAlignment="Center" />
+        </DockPanel>
+        <TextBlock Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" Text="Package JSON Preview" VerticalAlignment="Top" Height="30" FontSize="14" Background="LightGray"/>
+        <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Height="30" FontSize="14" Background="LightGray"><Run Text="Package "/><Run Text="Properties"/></TextBlock>
+    </Grid>
+</Window>
