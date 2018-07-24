@@ -14,7 +14,7 @@ These instructions will get you started on how to install the VSIX and start dev
 
 ### Installation
 
-Having the project downloaded and Visual Studio totally closed, execute the `.vsix` file within the `dist` folder. This pops up a window that will install the extension along with templates.
+Having the project downloaded and Visual Studio totally closed, execute the `.vsix` file within the `/dist` folder. This pops up a window that will install the extension along with templates.
 
 ![Installing](assets/images/installation.gif)
 
@@ -26,6 +26,17 @@ Having the project downloaded and Visual Studio totally closed, execute the `.vs
 
 ![Usage](assets/images/usage.gif)
 
+## Building from Source
+
+In order to build the project from source, Visual Studio SDK must be [installed](https://msdn.microsoft.com/en-us/library/mt683786.aspx?f=255&MSPPError=-2147217396).
+The solution has three projects:
+- **DynamoDev.StarterKitExtension**: Handling the VSIX extension and contains the Package Definition window.
+- **DynamoDev.ZeroTouch**: Contains the template to deploy a ZeroTouch package (not requiring custom UI).
+- **DynamoDev.ExplicitNodes**: Contains the template to deploy a Dynamo package whith nodes requiring UI customization.
+
+On debugging, another instance of Visual Studion will open and the extension can be used.
+On Release configuration mode, after being built the corresponding files will be copied to the `/dist` folder.
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
