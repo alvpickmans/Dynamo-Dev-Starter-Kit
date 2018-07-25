@@ -20,6 +20,7 @@ Having the project downloaded and Visual Studio totally closed, execute the `.vs
 
 ### Usage
 
+*Note: Bear in mind that the templates distributed on this extension are by no means mandatory and just represent my personal way of structuring projects. These templates can be modified whene [building the extension from source](#building-from-source)*
 
 ![Usage](assets/images/usage.gif)
 
@@ -32,7 +33,7 @@ Having the project downloaded and Visual Studio totally closed, execute the `.vs
 
 ```xml
 <PropertyGroup>
-    <PackageName>SampleProject</PackageName>
+    <PackageName>Sample Project</PackageName>
     <VersionFolder>2.0</VersionFolder> 
     <PackageFolder>$(SolutionDir)dist\$(PackageName)\</PackageFolder>
     <BinFolder>$(PackageFolder)bin\</BinFolder>
@@ -51,10 +52,8 @@ Having the project downloaded and Visual Studio totally closed, execute the `.vs
     <Copy SourceFiles="@(Pdbs)" DestinationFolder="$(BinFolder)" />
     <Copy SourceFiles="@(Xmls)" DestinationFolder="$(BinFolder)" />
     <Copy SourceFiles="@(PackageJson)" DestinationFolder="$(PackageFolder)" />
-    <MakeDir Directories="$(ExtraFolder)" Condition="!Exists($(ExtraFolder))">
-    </MakeDir>
-    <MakeDir Directories="$(DyfFolder)" Condition="!Exists($(DyfFolder))">
-    </MakeDir>
+    <MakeDir Directories="$(ExtraFolder)" Condition="!Exists($(ExtraFolder))" />
+    <MakeDir Directories="$(DyfFolder)" Condition="!Exists($(DyfFolder))"  />
     <CallTarget Condition="'$(Configuration)' == 'Debug'" Targets="PackageDeploy" />
   </Target>
   <Target Name="PackageDeploy">
