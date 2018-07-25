@@ -16,11 +16,11 @@
   </TemplateData>
   <TemplateContent>
     <ProjectCollection>
+      <ProjectTemplateLink ProjectName="$projectname$.UI">
+        ExplicitNode.UI\ExplicitNode.UI.vstemplate
+      </ProjectTemplateLink>
       <ProjectTemplateLink ProjectName="$projectname$">
         ExplicitNode\ExplicitNode.vstemplate
-      </ProjectTemplateLink>
-      <ProjectTemplateLink ProjectName="$projectname$.Functions">
-        ExplicitNode.Functions\ExplicitNode.Functions.vstemplate
       </ProjectTemplateLink>
     </ProjectCollection>
   </TemplateContent>

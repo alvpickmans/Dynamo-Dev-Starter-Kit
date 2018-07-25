@@ -24,7 +24,7 @@
     <DeployExtension>false</DeployExtension>
     <DeployVSTemplates>false</DeployVSTemplates>
     <CopyVsixManifestToOutput>false</CopyVsixManifestToOutput>
-    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
     <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -58,12 +58,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExplicitNode.Functions\packages.init" />
-    <None Include="ExplicitNode\HelloUI.cs" />
+    <None Include="ExplicitNode.UI\manifests\pkg.json" />
+    <None Include="ExplicitNode\packages.init" />
+    <None Include="ExplicitNode.UI\HelloUI.cs" />
+    <None Include="ExplicitNode.UI\AssemblyInfo.cs" />
     <None Include="ExplicitNode\AssemblyInfo.cs" />
-    <None Include="ExplicitNode.Functions\AssemblyInfo.cs" />
-    <None Include="ExplicitNode.Functions\Functions.cs" />
-    <None Include="ExplicitNode\HelloUINodeView.cs" />
+    <None Include="ExplicitNode\Functions.cs" />
+    <None Include="ExplicitNode.UI\HelloUINodeView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,27 +76,23 @@
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExplicitNode\manifests\pkg.json" />
-    <None Include="ExplicitNode\packages.init" />
-    <None Include="ExplicitNode\ExplicitNode.csproj">
+    <None Include="ExplicitNode.UI\packages.init" />
+    <None Include="ExplicitNode.UI\ExplicitNode.UI.csproj">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ExplicitNode\ExplicitNode.vstemplate">
+    <VSTemplate Include="ExplicitNode.UI\ExplicitNode.UI.vstemplate">
       <SubType>Designer</SubType>
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ExplicitNode.Functions\ExplicitNode.Functions.vstemplate" />
+    <VSTemplate Include="ExplicitNode\ExplicitNode.vstemplate" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExplicitNode.Functions\ExplicitNode.Functions.csproj" />
+    <None Include="ExplicitNode\ExplicitNode.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ExplicitNode\dist\" />
-    <Folder Include="ExplicitNode\src\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

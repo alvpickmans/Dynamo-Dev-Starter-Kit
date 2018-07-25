@@ -14,18 +14,9 @@
   </TemplateData>
   <TemplateContent>
     <Project File="ExplicitNode.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="HelloButton.xaml.cs">HelloButton.xaml.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="HelloButtonxaml">HelloButton.xaml</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUI.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUINodeView.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true">packages.init</ProjectItem>
-      <Folder Name="dist" TargetFolderName="dist" />
-      <Folder Name="manifests" TargetFolderName="manifests">
-        <ProjectItem ReplaceParameters="true" TargetFileName="pkg.json">pkg.json</ProjectItem>
-      </Folder>
-      <!--<Folder Name="src" TargetFolderName="src">
-      </Folder>-->
+		<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+		<ProjectItem ReplaceParameters="true" OpenInEditor="true">Functions.cs</ProjectItem>
+		<ProjectItem ReplaceParameters="true">packages.init</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>
@@ -36,12 +27,4 @@
     <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
     <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
   </WizardExtension>
-  <!--<WizardData>
-    <packages>
-      <package id="DynamoVisualProgramming.Core" version="$dynamoVersion$" targetFramework="net461" />
-      <package id="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$" targetFramework="net461" />
-      <package id="DynamoVisualProgramming.WpfUILibrary" version="$dynamoVersion$" targetFramework="net461" />
-      <package id="DynamoVisualProgramming.ZeroTouchLibrary" version="$dynamoVersion$" targetFramework="net461" />
-    </packages>
-  </WizardData>-->
 </VSTemplate>

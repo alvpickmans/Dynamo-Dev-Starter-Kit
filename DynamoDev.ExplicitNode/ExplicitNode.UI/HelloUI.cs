@@ -6,8 +6,9 @@ $endif$using System.Text;
 using Dynamo.Graph.Nodes;
 using Newtonsoft.Json;
 using ProtoCore.AST.AssociativeAST;
+using $saferootprojectname$;
 
-namespace $saferootprojectname$
+namespace $saferootprojectname$.UI
 {
   [NodeName("HelloUI")]
   [NodeDescription("Sample Explicit Node")]

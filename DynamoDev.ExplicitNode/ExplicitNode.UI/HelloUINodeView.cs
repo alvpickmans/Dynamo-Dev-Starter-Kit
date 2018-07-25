@@ -8,9 +8,10 @@ using Dynamo.Wpf;
 using Dynamo.ViewModels;
 using System.Windows.Controls;
 using System.Windows;
+using $saferootprojectname$;
 
 
-namespace $saferootprojectname$
+namespace $saferootprojectname$.UI
 {
   public class HelloUINodeView : INodeViewCustomization<HelloUI>
   {
@@ -27,7 +28,8 @@ namespace $saferootprojectname$
     var button = new Button()
     {
       Content = "Hello?",
-      //Margin = new System.Windows.Thickness(10, 0, 10, 0)
+      Width = 80,
+      Margin = new System.Windows.Thickness(10, 0, 10, 0)
     };
 
     button.Click += Button_Click;
