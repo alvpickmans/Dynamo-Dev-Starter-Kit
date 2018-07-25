@@ -20,7 +20,7 @@ Having the project downloaded and Visual Studio totally closed, execute the `.vs
 
 ### Usage
 
-*Note: Bear in mind that the templates distributed on this extension are by no means mandatory and just represent my personal way of structuring projects. These templates can be modified whene [building the extension from source](#building-from-source)*
+*Note: Bear in mind that the templates distributed on this extension are by no means mandatory and just represent my personal way of structuring projects. These templates can be modified when [building the extension from source](#building-from-source)*
 
 ![Usage](assets/images/usage.gif)
 
