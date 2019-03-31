@@ -40,6 +40,11 @@ namespace DynamoDev.StarterKitExtension
         internal bool forceClose = false;
         internal Dictionary<string,string> dynamoEngineVersions = new Dictionary<string, string>()
         {
+            { "2.1.0.7465", "2.1.0.7465" },
+            { "2.1.0.7451", "2.1.0.7451" },
+            { "2.1.0.7436", "2.1.0.7436" },
+            { "2.1.0.7430", "2.1.0.7430" },
+            { "2.0.2.6986", "2.0.2.6986" },
             { "2.0.1.5055", "2.0.1.5055" },
             { "2.0.1.4955", "2.0.1.4955" },
             { "2.0.1.4845", "2.0.1.4845" },
@@ -51,27 +56,6 @@ namespace DynamoDev.StarterKitExtension
             { "1.0.0", "1.0.0.1431" }
         };
 
-        //private string jsonTemplate = @"
-        //{{ 
-        //  'license': '',
-        //  'file_hash': null,
-        //  'name': '{0}',
-        //  'version': '{1}',
-        //  'description': '{2}',
-        //  'group': '',
-        //  'keywords': null,
-        //  'dependencies': [],
-        //  'contents': '',
-        //  'engine_version': '{3}',
-        //  'engine': 'dynamo',
-        //  'engine_metadata': '',
-        //  'site_url': '{4}',
-        //  'repository_url': '{5}',
-        //  'contains_binaries': true,
-        //  'node_libraries': [
-        //    '{6}, Version={7}, Culture=neutral, PublicKeyToken=null'
-        //  ]
-        //}}";
         #endregion
 
         #region Public Properties
@@ -80,26 +64,7 @@ namespace DynamoDev.StarterKitExtension
         /// </summary>
         public Dictionary<string, string> assemblies = new Dictionary<string, string>();
         public bool IsCancelled = false;
-
-        //public string PackageJson
-        //{
-        //    get
-        //    {
-        //        return String.Format(
-        //            jsonTemplate,
-        //            //"{0}{1}{2}{3}{4}{5}{6}{7}",
-        //            packageName,
-        //            packageVersion,
-        //            packageDefinition,
-        //            engineVersion,
-        //            siteUrl,
-        //            repoUrl,
-        //            assemblyName,
-        //            assemblyVersion
-        //            );
-        //    }
-        //}
-
+        
         public string PackageName
         {
             get { return packageName; }
