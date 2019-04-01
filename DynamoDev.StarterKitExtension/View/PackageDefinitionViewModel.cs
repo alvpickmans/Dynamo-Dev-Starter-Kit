@@ -49,11 +49,7 @@ namespace DynamoDev.StarterKitExtension
             { "2.0.1.4955", "2.0.1.4955" },
             { "2.0.1.4845", "2.0.1.4845" },
             { "2.0.0.4714", "2.0.0.4714" },
-            { "2.0.0", "2.0.0.4604" },
-            { "1.3.0", "1.3.0.961" },
-            { "1.2.0", "1.2.0.2690" },
-            { "1.1.0", "1.1.0.2094" },
-            { "1.0.0", "1.0.0.1431" }
+            { "2.0.0", "2.0.0.4604" }
         };
 
         #endregion
@@ -72,7 +68,6 @@ namespace DynamoDev.StarterKitExtension
             {
                 packageName = value;
                 NotifyPropertyChanged("PackageName");
-                //NotifyPropertyChanged("PackageJson");
             }
         }
 
@@ -121,7 +116,6 @@ namespace DynamoDev.StarterKitExtension
             {
                 packageDescription = value;
                 NotifyPropertyChanged("PackageDescription");
-                //NotifyPropertyChanged("PackageJson");
             }
         }
 
@@ -133,7 +127,6 @@ namespace DynamoDev.StarterKitExtension
                 dynamoVersion = value;
                 EngineVersion = dynamoEngineVersions[dynamoVersion];
                 NotifyPropertyChanged("DynamoVersion");
-                //NotifyPropertyChanged("PackageJson");
             }
         }
 
@@ -154,7 +147,6 @@ namespace DynamoDev.StarterKitExtension
             {
                 siteUrl = value;
                 NotifyPropertyChanged("SiteUrl");
-                //NotifyPropertyChanged("PackageJson");
             }
         }
 
@@ -165,7 +157,6 @@ namespace DynamoDev.StarterKitExtension
             {
                 repoUrl = value;
                 NotifyPropertyChanged("RepoUrl");
-                //NotifyPropertyChanged("PackageJson");
             }
         }
 
