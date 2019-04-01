@@ -124,6 +124,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\DynamoDev.ViewExtension\DynamoDev.ViewExtension.csproj">
+      <Project>{847A2659-5169-470F-A8C6-2CB7A4FC338F}</Project>
+      <Name>DynamoDev.ViewExtension</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\DynamoDev.ZeroTouch\DynamoDev.ZeroTouch.csproj">
       <Project>{A509A3FB-C404-4D2A-A225-C78F25C3E80C}</Project>
       <Name>DynamoDev.ZeroTouch</Name>
