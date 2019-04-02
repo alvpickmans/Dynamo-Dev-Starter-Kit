@@ -12,7 +12,7 @@
     <DefaultName>Dynamo_ViewExtension</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
-  <TemplateContent>
+  <TemplateContent>    
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="packages.init">packages.init</ProjectItem>
@@ -28,6 +28,9 @@
         <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$WindowViewModel.cs">$projectname$WindowViewModel.cs</ProjectItem>
       </Folder>
     </Project>
+    <CustomParameters>
+      <CustomParameter Name="$projecttype$" Value="ViewExtension"/>
+    </CustomParameters>
   </TemplateContent>
   <WizardExtension>
     <Assembly>DynamoDev.StarterKitExtension, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9ab483fc762af72c</Assembly>

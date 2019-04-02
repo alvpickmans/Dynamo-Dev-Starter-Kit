@@ -25,6 +25,9 @@
       <Folder Name="src" TargetFolderName="src">
       </Folder>
     </Project>
+    <CustomParameters>
+      <CustomParameter Name="$projecttype$" Value="ZeroTouch"/>
+    </CustomParameters>
   </TemplateContent>
   <WizardExtension>
     <Assembly>DynamoDev.StarterKitExtension, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9ab483fc762af72c</Assembly>
