@@ -74,10 +74,11 @@ Having the project downloaded and Visual Studio totally closed, execute the `.vs
 ## Building from Source
 
 In order to build the project from source, Visual Studio SDK must be [installed](https://msdn.microsoft.com/en-us/library/mt683786.aspx?f=255&MSPPError=-2147217396).
-The solution has three projects:
+The solution has 4 projects:
 - **DynamoDev.StarterKitExtension**: Handling the VSIX extension and contains the Package Definition window.
 - **DynamoDev.ZeroTouch**: Contains the template to deploy a ZeroTouch package (not requiring custom UI).
-- **DynamoDev.ExplicitNodes**: Contains the template to deploy a Dynamo package whith nodes requiring UI customization.
+- **DynamoDev.ExplicitNodes**: Contains the template to deploy a Dynamo package with nodes requiring UI customization.
+- **DynamoDev.ViewExtension**: Contains the template to deploy a Dynamo ViewExtension.
 
 On debugging, another instance of Visual Studion will open and the extension can be used.
 On Release configuration mode, after being built the corresponding files will be copied to the `/dist` folder.
