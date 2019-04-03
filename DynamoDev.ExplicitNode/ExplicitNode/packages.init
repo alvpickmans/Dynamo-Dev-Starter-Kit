@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <packages>
-  <package id="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$" targetFramework="net461" />
+  <package id="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$" targetFramework="net47" />
 </packages>

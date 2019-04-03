@@ -1,0 +1,4 @@
+﻿<ViewExtensionDefinition>
+  <AssemblyPath>..\bin\$projectname$.dll</AssemblyPath>
+  <TypeName>$safeprojectname$.$projectname$ViewExtension</TypeName>
+</ViewExtensionDefinition>
