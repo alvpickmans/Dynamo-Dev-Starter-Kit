@@ -14,7 +14,7 @@ These instructions will get you started on how to install the VSIX and start dev
 
 ### Installation
 
-Having the project downloaded and Visual Studio totally closed, execute the `.vsix` file within the `/dist` folder. This pops up a window that will install the extension along with templates.
+Having the project downloaded and Visual Studio totally closed, execute the `.vsix` file within the `/dist` folder. This pops up a window that will install the extension along with templates. You can also install the latest stable version by downloading the `.zip` bundle from the [latest release](https://github.com/alvpickmans/Dynamo-Dev-Starter-Kit/releases/latest) section.
 
 ![Installing](assets/images/installation.gif)
 
