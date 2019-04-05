@@ -9,7 +9,7 @@ These instructions will get you started on how to install the VSIX and start dev
 
 ### Prerequisites
 
-- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+- [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/downloads/)
 - [Dynamo Visual Programming](http://dynamobim.org/download/)
 
 ### Installation
