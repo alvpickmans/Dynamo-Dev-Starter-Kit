@@ -12,7 +12,7 @@
     <DefaultName>Dynamo_ZeroTouch</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
-  <TemplateContent>
+  <TemplateContent>    
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="src\HelloDynamo.cs" OpenInEditor="true">HelloDynamo.cs</ProjectItem>
@@ -25,7 +25,7 @@
       </Folder>
     </Project>
     <CustomParameters>
-      <CustomParameter Name="$projecttype$" Value="ZeroTouch"/>
+      <CustomParameter Name="$dynamoprojecttype$" Value="ZeroTouch"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

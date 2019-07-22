@@ -28,7 +28,7 @@
       </Folder>
     </Project>
     <CustomParameters>
-      <CustomParameter Name="$projecttype$" Value="ViewExtension"/>
+      <CustomParameter Name="$dynamoprojecttype$" Value="ViewExtension"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

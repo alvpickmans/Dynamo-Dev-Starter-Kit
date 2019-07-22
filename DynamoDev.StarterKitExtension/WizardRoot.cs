@@ -7,13 +7,21 @@ using EnvDTE;
 
 namespace DynamoDev.StarterKitExtension
 {
+    public enum DynamoProjectType
+    {
+        ZeroTouch,
+        ExplicitNode,
+        ViewExtension
+    }
+
     public class WizardRoot : IWizard
     {
         private const string WIZARD_TITLE = "Dynamo Dev Starter Kit";
         public static Dictionary<string, string> GlobalDictionary = new Dictionary<string, string>();
 
+        
         private string InstanceTitle { get; set; }
-        private bool IsSingleProjectWizard = true;
+        private WizardRunKind runKind { get; set; }
         private PackageDefinitionView view;
         private string DynamoSandbox2path = @"C:\Program Files\Dynamo\Dynamo Core\2\DynamoSandbox.exe";
         private string DynamoSandbox1path = @"C:\Program Files\Dynamo\Dynamo Revit\{0}\DynamoSandbox.exe";
@@ -26,7 +34,7 @@ namespace DynamoDev.StarterKitExtension
 
         public void ProjectFinishedGenerating(Project project)
         {
-            if (IsSingleProjectWizard)
+            if (this.runKind != WizardRunKind.AsMultiProject)
                 Helpers.RestorePackages(project);
         }
 
@@ -64,21 +72,30 @@ namespace DynamoDev.StarterKitExtension
           Dictionary<string, string> replacementsDictionary,
           WizardRunKind runKind, object[] customParams)
         {
+            this.runKind = runKind;
             GlobalDictionary["$saferootprojectname$"] = replacementsDictionary["$safeprojectname$"];
             string destinationDirectory = replacementsDictionary["$destinationdirectory$"];
-            string projectType = replacementsDictionary["$projecttype$"];
-            this.InstanceTitle = $"{WIZARD_TITLE} - {projectType}";
+
+            if (!Enum.TryParse(replacementsDictionary["$dynamoprojecttype$"], out DynamoProjectType projectType))
+                throw new Exception("Template doesn't have a valid '$dynamoprojecttype$' custom parameter!");
 
             PackageDefinitionViewModel viewModel = new PackageDefinitionViewModel();
             viewModel.PackageName = replacementsDictionary["$safeprojectname$"];
-            viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"], "1.0.0.0");
 
-            if (runKind == WizardRunKind.AsMultiProject)
+            switch (projectType)
             {
-                viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"] + ".UI", "1.0.0.0");
-                IsSingleProjectWizard = false;
+                case DynamoProjectType.ZeroTouch:
+                    viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"], "1.0.0.0");
+                    break;
+                case DynamoProjectType.ExplicitNode:
+                    viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"], "1.0.0.0");
+                    viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"] + ".UI", "1.0.0.0");
+                    break;
+                default:
+                    break;
             }
-
+            
+            this.InstanceTitle = $"{WIZARD_TITLE} - {projectType}";
             view = new PackageDefinitionView(viewModel)
             {
                 Title = this.InstanceTitle,
