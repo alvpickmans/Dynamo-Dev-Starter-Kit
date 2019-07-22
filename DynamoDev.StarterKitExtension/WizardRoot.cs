@@ -102,7 +102,7 @@ namespace DynamoDev.StarterKitExtension
                 DataContext = viewModel
             };
 
-            foreach (var version in viewModel.dynamoEngineVersions.Keys)
+            foreach (var version in viewModel.dynamoEngineVersions)
             {
                 view.engineVersions.Items.Add(version);
             }
@@ -122,7 +122,7 @@ namespace DynamoDev.StarterKitExtension
                     AddReplacement(replacementsDictionary, "$packageName$", viewModel.PackageName);
                     AddReplacement(replacementsDictionary, "$packageVersion$", viewModel.PackageVersion);
                     AddReplacement(replacementsDictionary, "$packageDescription$", viewModel.PackageDescription);
-                    AddReplacement(replacementsDictionary, "$dynamoVersion$", viewModel.DynamoVersion);
+                    AddReplacement(replacementsDictionary, "$dynamoVersion$", $"{viewModel.DynamoVersion}.*");
                     AddReplacement(replacementsDictionary, "$engineVersion$", viewModel.EngineVersion);
                     AddReplacement(replacementsDictionary, "$versionFolder$", versionFolder);
                     AddReplacement(replacementsDictionary, "$siteUrl$", viewModel.SiteUrl);

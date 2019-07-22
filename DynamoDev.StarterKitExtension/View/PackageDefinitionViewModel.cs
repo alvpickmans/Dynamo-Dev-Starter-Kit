@@ -38,20 +38,11 @@ namespace DynamoDev.StarterKitExtension
         private string siteUrl = String.Empty;
         private string repoUrl = String.Empty;
         internal bool forceClose = false;
-        internal Dictionary<string,string> dynamoEngineVersions = new Dictionary<string, string>()
+        internal List<string> dynamoEngineVersions = new List<string>()
         {
-            { "2.2.1.5204", "2.2.1.5204" },
-            { "2.2.0.4565", "2.2.0.4565" },
-            { "2.1.0.7465", "2.1.0.7465" },
-            { "2.1.0.7451", "2.1.0.7451" },
-            { "2.1.0.7436", "2.1.0.7436" },
-            { "2.1.0.7430", "2.1.0.7430" },
-            { "2.0.2.6986", "2.0.2.6986" },
-            { "2.0.1.5055", "2.0.1.5055" },
-            { "2.0.1.4955", "2.0.1.4955" },
-            { "2.0.1.4845", "2.0.1.4845" },
-            { "2.0.0.4714", "2.0.0.4714" },
-            { "2.0.0", "2.0.0.4604" }
+            "2.2",
+            "2.1",
+            "2.0"
         };
 
         #endregion
@@ -127,7 +118,7 @@ namespace DynamoDev.StarterKitExtension
             set
             {
                 dynamoVersion = value;
-                EngineVersion = dynamoEngineVersions[dynamoVersion];
+                EngineVersion = dynamoVersion;
                 NotifyPropertyChanged("DynamoVersion");
             }
         }
