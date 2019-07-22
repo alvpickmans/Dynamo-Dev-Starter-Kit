@@ -109,12 +109,14 @@
       <Dlls Include="$(OutDir)*.dll" />
       <Pdbs Include="$(OutDir)*.pdb" />
       <Xmls Include="$(OutDir)*.xml" />
-      <Xmls Include="$(ProjectDir)manifests\*.xml" />
+      <ViewExtensionDefs Include="$(ProjectDir)manifests\*ViewExtensionDefinition.xml" />
+      <Xmls Include="$(ProjectDir)manifests\*.xml" Exclude="@(ViewExtensionDefs)"/>
       <PackageJson Include="$(ProjectDir)manifests\pkg.json" />
     </ItemGroup>
     <Copy SourceFiles="@(Dlls)" DestinationFolder="$(BinFolder)" />
     <Copy SourceFiles="@(Pdbs)" DestinationFolder="$(BinFolder)" />
     <Copy SourceFiles="@(Xmls)" DestinationFolder="$(BinFolder)" />
+    <Copy SourceFiles="@(ViewExtensionDefs)" DestinationFolder="$(ExtraFolder)" />
     <Copy SourceFiles="@(PackageJson)" DestinationFolder="$(PackageFolder)" />
     <MakeDir Directories="$(ExtraFolder)" Condition="!Exists($(ExtraFolder))"></MakeDir>
     <MakeDir Directories="$(DyfFolder)" Condition="!Exists($(DyfFolder))"></MakeDir>
