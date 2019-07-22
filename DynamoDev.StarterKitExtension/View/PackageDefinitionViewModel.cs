@@ -167,15 +167,18 @@ namespace DynamoDev.StarterKitExtension
             get
             {
                 string nodes = String.Empty;
-                string lastKey = assemblies.Keys.Last();
-                foreach(var assembly in assemblies)
+
+                for (int i = 0; i < assemblies.Count; i++)
                 {
-                    nodes += String.Format("\"{0}, Version={1}, Culture=neutral, PublicKeyToken=null\"", assembly.Key, assembly.Value);
-                    if (!assembly.Key.Equals(lastKey))
-                    {
-                        nodes += "," + Environment.NewLine;
-                    }
+                    string name = assemblies.ElementAt(i).Key;
+                    string version = assemblies.ElementAt(i).Value;
+
+                    nodes += $"\"{name}, Version={version}, Culture=neutral, PublicKeyToken=null\"";
+
+                    if (i < assemblies.Count - 1)
+                        nodes += $",{Environment.NewLine}";
                 }
+                
                 return nodes;
             }
         }
