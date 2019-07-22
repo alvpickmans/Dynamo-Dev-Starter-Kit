@@ -46,7 +46,9 @@
 	</ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
   </ItemGroup>
   
 	<ItemGroup>

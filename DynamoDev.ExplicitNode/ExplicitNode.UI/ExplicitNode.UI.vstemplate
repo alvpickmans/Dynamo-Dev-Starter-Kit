@@ -30,12 +30,4 @@
     <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
     <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
   </WizardExtension>
-  <!--<WizardData>
-    <packages>
-      <package id="DynamoVisualProgramming.Core" version="$dynamoVersion$" targetFramework="net461" />
-      <package id="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$" targetFramework="net461" />
-      <package id="DynamoVisualProgramming.WpfUILibrary" version="$dynamoVersion$" targetFramework="net461" />
-      <package id="DynamoVisualProgramming.ZeroTouchLibrary" version="$dynamoVersion$" targetFramework="net461" />
-    </packages>
-  </WizardData>-->
 </VSTemplate>
