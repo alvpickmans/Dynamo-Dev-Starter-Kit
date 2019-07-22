@@ -66,7 +66,6 @@
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
     <None Include="src\%24projectname%24ViewExtension.cs" />
-    <None Include="packages.init" />
     <None Include="ProjectTemplate.csproj">
       <SubType>Designer</SubType>
     </None>

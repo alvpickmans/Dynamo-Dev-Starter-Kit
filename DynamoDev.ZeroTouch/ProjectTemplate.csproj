@@ -14,6 +14,7 @@
     <StartAction>Program</StartAction>
     <StartProgram>$startProgramPath$</StartProgram>
 		<FileAlignment>512</FileAlignment>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
@@ -45,23 +46,17 @@
  		$endif$
 		<Reference Include="System.Data"/>
 		<Reference Include="System.Xml"/>
-
-    <!--<Reference Include="DynamoServices, Version=$engineVersion$, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.$dynamoVersion$\lib\net45\DynamoServices.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DynamoUnits, Version=$engineVersion$, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.$dynamoVersion$\lib\net45\DynamoUnits.dll</HintPath>
-      <Private>False</Private>
-    </Reference>-->
     <Reference Include="Microsoft.VisualStudio.CoreUtility">
       <Private>False</Private>
     </Reference>
-    <!--<Reference Include="ProtoGeometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.$dynamoVersion$\lib\net45\ProtoGeometry.dll</HintPath>
-      <Private>False</Private>
-    </Reference>-->
 	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="$dynamoVersion$" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="$dynamoVersion$" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="$dynamoVersion$" /> 
+  </ItemGroup>
+  
   <ItemGroup>
     <Folder Include="dist\"/>
     <Folder Include="manifests\"/>
@@ -69,7 +64,6 @@
   <ItemGroup>
     <None Include="manifests\pkg.json" />
     <None Include="manifests\$projectname$_DynamoCustomization.xml" />
-    <None Include="packages.init" />
   </ItemGroup>
 	<ItemGroup>
 		<Compile Include="src\HelloDynamo.cs" />

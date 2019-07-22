@@ -18,13 +18,12 @@ namespace DynamoDev.StarterKitExtension
 
         public void ProjectFinishedGenerating(Project project)
         {
-            Helpers.InstallPackages(project);
+            Helpers.RestorePackages(project);
         }
 
         // This method is only called for item templates,  
         // not for project templates.  
-        public void ProjectItemFinishedGenerating(ProjectItem
-            projectItem)
+        public void ProjectItemFinishedGenerating(ProjectItem projectItem)
         {
         }
 
@@ -37,7 +36,6 @@ namespace DynamoDev.StarterKitExtension
             Dictionary<string, string> replacementsDictionary,
             WizardRunKind runKind, object[] customParams)
         {
-            //replacementsDictionary.Add("$saferootprojectname$", WizardCustomNode.GlobalDictionary["$saferootprojectname$"]);
             foreach(var kv in WizardRoot.GlobalDictionary)
             {
                 replacementsDictionary.Add(kv.Key, kv.Value);

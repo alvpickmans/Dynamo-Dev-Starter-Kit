@@ -17,7 +17,6 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUI.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUINodeView.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true">packages.init</ProjectItem>
 		<Folder Name="manifests" TargetFolderName="manifests">
 			<ProjectItem ReplaceParameters="true" TargetFileName="pkg.json">pkg.json</ProjectItem>
 		</Folder>

@@ -14,6 +14,7 @@
     <StartAction>Program</StartAction>
     <StartProgram>$startProgramPath$</StartProgram>
 		<FileAlignment>512</FileAlignment>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,14 @@
 		<Reference Include="System.Data"/>
 		<Reference Include="System.Xml"/>
 	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DynamoVisualProgramming.Core" version="$dynamoVersion$" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$" />
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" version="$dynamoVersion$" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" version="$dynamoVersion$" />
+  </ItemGroup>
+  
 	<ItemGroup>
 		<Compile Include="src\$projectname$ViewExtension.cs" />
     <Compile Include="src\$projectname$WindowViewModel.cs" />
@@ -66,7 +75,6 @@
   <ItemGroup>
     <None Include="manifests\pkg.json" />
     <None Include="manifests\$projectname$_ViewExtensionDefinition.xml" />
-    <None Include="packages.init" />
   </ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
