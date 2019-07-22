@@ -40,6 +40,8 @@ namespace DynamoDev.StarterKitExtension
         internal bool forceClose = false;
         internal Dictionary<string,string> dynamoEngineVersions = new Dictionary<string, string>()
         {
+            { "2.2.1.5204", "2.2.1.5204" },
+            { "2.2.0.4565", "2.2.0.4565" },
             { "2.1.0.7465", "2.1.0.7465" },
             { "2.1.0.7451", "2.1.0.7451" },
             { "2.1.0.7436", "2.1.0.7436" },
