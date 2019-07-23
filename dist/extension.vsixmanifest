@@ -3,6 +3,8 @@
     <Identity Id="DynamoDev.StarterKitExtension.b47d2e9b-bb1a-412b-baed-645a1061c43d" Version="1.1.4" Language="en-US" Publisher="Álvaro Ortega Pickmans" />
     <DisplayName>DynamoDev StarterKit</DisplayName>
     <Description xml:space="preserve">Visual Studio Extension providing templates for the setup of Dynamo Visual Programming package projects.</Description>
+    <MoreInfo>https://github.com/alvpickmans/Dynamo-Dev-Starter-Kit</MoreInfo>
+    <Tags>dynamo, dynamobim, zero touch, view extension</Tags>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 17.0)" />

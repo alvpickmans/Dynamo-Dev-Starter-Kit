@@ -65,6 +65,12 @@
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\$saferootprojectname$\$saferootprojectname$.csproj">
+      <Name>$saferootprojectname$</Name>
+    </ProjectReference>
+  </ItemGroup>
   
 	<ItemGroup>
 		<Folder Include="manifests\"/>
