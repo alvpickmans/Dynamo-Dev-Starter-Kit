@@ -1,6 +1,6 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
   <Metadata>
-    <Identity Id="DynamoDev.StarterKitExtension.b47d2e9b-bb1a-412b-baed-645a1061c43d" Version="1.1.4" Language="en-US" Publisher="Álvaro Ortega Pickmans" />
+    <Identity Id="DynamoDev.StarterKit.626CB68D-CE82-4403-8F26-3F025FBF27DF" Version="1.1.4" Language="en-US" Publisher="Álvaro Ortega Pickmans" />
     <DisplayName>DynamoDev StarterKit</DisplayName>
     <Description xml:space="preserve">Visual Studio Extension providing templates for the setup of Dynamo Visual Programming package projects.</Description>
     <MoreInfo>https://github.com/alvpickmans/Dynamo-Dev-Starter-Kit</MoreInfo>
