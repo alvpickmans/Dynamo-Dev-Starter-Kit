@@ -14,6 +14,7 @@
 		<StartAction>Program</StartAction>
 		<StartProgram>$startProgramPath$</StartProgram>
 		<FileAlignment>512</FileAlignment>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<DebugSymbols>true</DebugSymbols>
@@ -33,9 +34,12 @@
 		<WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 	<ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System"/>
 		$if$ ($targetframeworkversion$ >= 3.5)
 		<Reference Include="System.Core"/>
+    <Reference Include="System.Xaml" />
 		<Reference Include="System.Xml.Linq"/>
 		<Reference Include="System.Data.DataSetExtensions"/>
 		$endif$
@@ -44,22 +48,41 @@
  		$endif$
 		<Reference Include="System.Data"/>
 		<Reference Include="System.Xml"/>
+    <Reference Include="WindowsBase" />
 	</ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="DynamoVisualProgramming.Core" version="$dynamoVersion$">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" version="$dynamoVersion$">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" version="$dynamoVersion$">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\$saferootprojectname$\$saferootprojectname$.csproj">
+      <Name>$saferootprojectname$</Name>
+    </ProjectReference>
+  </ItemGroup>
+  
 	<ItemGroup>
 		<Folder Include="manifests\"/>
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Include="HelloUI.cs" />
 		<Compile Include="HelloUINodeView.cs" />
-    <!--<Compile Include="HelloButton.xaml.cs">
-      <DependentUpon>HelloButton.xaml</DependentUpon>
-    </Compile>-->
 
 		<Compile Include="Properties\AssemblyInfo.cs" />
 	</ItemGroup>
   <ItemGroup>
-	<None Include="manifests\pkg.json" />	  
-	<None Include="packages.init" />
+	<None Include="manifests\pkg.json" />
   </ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

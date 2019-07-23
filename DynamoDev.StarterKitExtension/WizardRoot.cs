@@ -7,12 +7,21 @@ using EnvDTE;
 
 namespace DynamoDev.StarterKitExtension
 {
+    public enum DynamoProjectType
+    {
+        ZeroTouch,
+        ExplicitNode,
+        ViewExtension
+    }
+
     public class WizardRoot : IWizard
     {
+        private const string WIZARD_TITLE = "Dynamo Dev Starter Kit";
         public static Dictionary<string, string> GlobalDictionary = new Dictionary<string, string>();
-        private string WizardTitle = "Dynamo Dev Starter Kit - {0}";
 
-        private bool IsSingleProjectWizard = true;
+        
+        private string InstanceTitle { get; set; }
+        private WizardRunKind runKind { get; set; }
         private PackageDefinitionView view;
         private string DynamoSandbox2path = @"C:\Program Files\Dynamo\Dynamo Core\2\DynamoSandbox.exe";
         private string DynamoSandbox1path = @"C:\Program Files\Dynamo\Dynamo Revit\{0}\DynamoSandbox.exe";
@@ -25,10 +34,8 @@ namespace DynamoDev.StarterKitExtension
 
         public void ProjectFinishedGenerating(Project project)
         {
-            if (IsSingleProjectWizard)
-            {
-                Helpers.InstallPackages(project);
-            }
+            if (this.runKind != WizardRunKind.AsMultiProject)
+                Helpers.RestorePackages(project);
         }
 
         // This method is only called for item templates,  
@@ -65,30 +72,37 @@ namespace DynamoDev.StarterKitExtension
           Dictionary<string, string> replacementsDictionary,
           WizardRunKind runKind, object[] customParams)
         {
+            this.runKind = runKind;
             GlobalDictionary["$saferootprojectname$"] = replacementsDictionary["$safeprojectname$"];
             string destinationDirectory = replacementsDictionary["$destinationdirectory$"];
-            string projectType = replacementsDictionary["$projecttype$"];
 
+            if (!Enum.TryParse(replacementsDictionary["$dynamoprojecttype$"], out DynamoProjectType projectType))
+                throw new Exception("Template doesn't have a valid '$dynamoprojecttype$' custom parameter!");
 
             PackageDefinitionViewModel viewModel = new PackageDefinitionViewModel();
             viewModel.PackageName = replacementsDictionary["$safeprojectname$"];
-            viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"], "1.0.0.0");
-            if (runKind == WizardRunKind.AsMultiProject)
+
+            switch (projectType)
             {
-                viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"] + ".UI", "1.0.0.0");
-                IsSingleProjectWizard = false;
+                case DynamoProjectType.ZeroTouch:
+                    viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"], "1.0.0.0");
+                    break;
+                case DynamoProjectType.ExplicitNode:
+                    viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"], "1.0.0.0");
+                    viewModel.AddAssembly(replacementsDictionary["$safeprojectname$"] + ".UI", "1.0.0.0");
+                    break;
+                default:
+                    break;
             }
-
-            WizardTitle = String.Format(WizardTitle, projectType);
             
-
+            this.InstanceTitle = $"{WIZARD_TITLE} - {projectType}";
             view = new PackageDefinitionView(viewModel)
             {
-                Title = WizardTitle,
+                Title = this.InstanceTitle,
                 DataContext = viewModel
             };
 
-            foreach (var version in viewModel.dynamoEngineVersions.Keys)
+            foreach (var version in viewModel.dynamoEngineVersions)
             {
                 view.engineVersions.Items.Add(version);
             }
@@ -108,7 +122,7 @@ namespace DynamoDev.StarterKitExtension
                     AddReplacement(replacementsDictionary, "$packageName$", viewModel.PackageName);
                     AddReplacement(replacementsDictionary, "$packageVersion$", viewModel.PackageVersion);
                     AddReplacement(replacementsDictionary, "$packageDescription$", viewModel.PackageDescription);
-                    AddReplacement(replacementsDictionary, "$dynamoVersion$", viewModel.DynamoVersion);
+                    AddReplacement(replacementsDictionary, "$dynamoVersion$", $"{viewModel.DynamoVersion}.*");
                     AddReplacement(replacementsDictionary, "$engineVersion$", viewModel.EngineVersion);
                     AddReplacement(replacementsDictionary, "$versionFolder$", versionFolder);
                     AddReplacement(replacementsDictionary, "$siteUrl$", viewModel.SiteUrl);
@@ -126,16 +140,12 @@ namespace DynamoDev.StarterKitExtension
             {
                 if (!viewModel.forceClose)
                 {
-                    var result = MessageBox.Show("Do you wish to stop creating the project?", WizardTitle, MessageBoxButtons.YesNo);
+                    var result = MessageBox.Show("Do you wish to stop creating the project?", this.InstanceTitle, MessageBoxButtons.YesNo);
 
                     if (result == DialogResult.Yes)
-                    {
                         viewModel.IsCancelled = true;
-                    }
                     else
-                    {
                         args.Cancel = true;
-                    }
                 }
 
             };
@@ -144,11 +154,11 @@ namespace DynamoDev.StarterKitExtension
             {
                 if (!viewModel.IsEngineVersionSet())
                 {
-                    MessageBox.Show("An Engine Version must be selected.", WizardTitle);
+                    MessageBox.Show("An Engine Version must be selected.", this.InstanceTitle);
                 }
                 else
                 {
-                    var result = MessageBox.Show("Are you happy with the package? You will be able to change the parameters later on.", WizardTitle, MessageBoxButtons.YesNo);
+                    var result = MessageBox.Show("Are you happy with the package? You will be able to change the parameters later on.", this.InstanceTitle, MessageBoxButtons.YesNo);
 
                     if (result == DialogResult.Yes)
                     {

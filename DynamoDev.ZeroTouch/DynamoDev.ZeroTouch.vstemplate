@@ -12,11 +12,10 @@
     <DefaultName>Dynamo_ZeroTouch</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
   </TemplateData>
-  <TemplateContent>
+  <TemplateContent>    
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="src\HelloDynamo.cs" OpenInEditor="true">HelloDynamo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="packages.init">packages.init</ProjectItem>
       <Folder Name="dist" TargetFolderName="dist" />
       <Folder Name="manifests" TargetFolderName="manifests">
         <ProjectItem ReplaceParameters="true" TargetFileName="pkg.json">pkg.json</ProjectItem>
@@ -26,7 +25,7 @@
       </Folder>
     </Project>
     <CustomParameters>
-      <CustomParameter Name="$projecttype$" Value="ZeroTouch"/>
+      <CustomParameter Name="$dynamoprojecttype$" Value="ZeroTouch"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

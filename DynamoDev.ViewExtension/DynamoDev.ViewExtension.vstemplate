@@ -15,7 +15,6 @@
   <TemplateContent>    
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="packages.init">packages.init</ProjectItem>
       <Folder Name="dist" TargetFolderName="dist" />
       <Folder Name="manifests" TargetFolderName="manifests">
         <ProjectItem ReplaceParameters="true" TargetFileName="pkg.json">pkg.json</ProjectItem>
@@ -29,7 +28,7 @@
       </Folder>
     </Project>
     <CustomParameters>
-      <CustomParameter Name="$projecttype$" Value="ViewExtension"/>
+      <CustomParameter Name="$dynamoprojecttype$" Value="ViewExtension"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

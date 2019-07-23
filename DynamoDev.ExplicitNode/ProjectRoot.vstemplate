@@ -24,7 +24,7 @@
       </ProjectTemplateLink>
     </ProjectCollection>
     <CustomParameters>
-      <CustomParameter Name="$projecttype$" Value="ExplicitNode"/>
+      <CustomParameter Name="$dynamoprojecttype$" Value="ExplicitNode"/>
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

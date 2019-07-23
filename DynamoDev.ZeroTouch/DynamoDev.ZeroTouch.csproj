@@ -72,7 +72,6 @@
     <None Include="AssemblyInfo.cs" />
     <None Include="HelloDynamo.cs" />
     <None Include="manifests\pkg.json" />
-    <None Include="packages.init" />
     <None Include="ProjectTemplate.csproj">
       <SubType>Designer</SubType>
     </None>

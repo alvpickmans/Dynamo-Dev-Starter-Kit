@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<packages>
-  <package id="DynamoVisualProgramming.Core" version="$dynamoVersion$" targetFramework="net47" />
-  <package id="DynamoVisualProgramming.DynamoServices" version="$dynamoVersion$" targetFramework="net47" />
-  <package id="DynamoVisualProgramming.DynamoCoreNodes" version="$dynamoVersion$" targetFramework="net47" />
-  <package id="DynamoVisualProgramming.WpfUILibrary" version="$dynamoVersion$" targetFramework="net47" />
-  <package id="DynamoVisualProgramming.ZeroTouchLibrary" version="$dynamoVersion$" targetFramework="net47" />
-</packages>

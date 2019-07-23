@@ -16,7 +16,6 @@
     <Project File="ExplicitNode.csproj" ReplaceParameters="true">
 		<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
 		<ProjectItem ReplaceParameters="true" OpenInEditor="true">Functions.cs</ProjectItem>
-		<ProjectItem ReplaceParameters="true">packages.init</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>
