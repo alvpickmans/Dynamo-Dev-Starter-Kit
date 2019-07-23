@@ -5,7 +5,7 @@ The set up of a project aiming the [Dynamo](http://dynamobim.org/) platform can 
 ## Getting Started
 
 These instructions will get you started on how to install the VSIX and start developing your own Dynamo packages. 
-*Bear in mind these templates are just one of many ways of setting up Visual Studio to seamlessly create a base structures.*
+*Bear in mind these templates are just one of many ways of setting up Visual Studio to seamlessly create a base project scaffolding.*
 
 ### Prerequisites
 
@@ -24,12 +24,15 @@ Having the project downloaded and Visual Studio totally closed, execute the `.vs
 
 ![Usage](assets/images/usage.gif)
 
-- Within Visual Studio, create a new project. Under Visual C#, you should have two new templates: `Dynamo Template - ZeroTouch` and `Dynamo Template - Explicit Nodes`.
+- Within Visual Studio, create a new project. Under Visual C#, you should have three new templates: 
+  - `Dynamo Template - ZeroTouch`
+  - `Dynamo Template - Explicit Nodes`
+  - `Dynamo Template - ViewExtension`
 - Fill in the parameters of your projects. The panel on the rigth displays a preview of the `pkg.json` file that will get generated.
-- Once accepted, it will download all the necessary Dynamo Nuget packages and you'll be ready to start coding:
-    - **ZeroTouch Template**: Before start debugging, remember to set `copy local` property to `false`.
-    - **Explicit Nodes Template**: Similar to ZeroTouch, remember to set `copy local = false` on both projects. After, add the reference to the project `{YourProjectName}` to `{YourProjectName}.UI`, keeping this with `copy local = true`.
-- Finally when compiling, a package folder will be created at `{YourSolutionName}/dist/{YourProjectName}`. If configuration mode is on `Debug`, this package folder will be copied to the Dynamo packages folder, following the below snippet on the `{YourProjectName}.UI.csproj` file:
+- Once accepted, it will generate a project scaffolding on the selected location.
+- Required Dynamo Libraries are already define. In order to restore them, press right-click on the solution's tab and select `Restore Nuget Packages`. This will download them from NuGet and you'll be ready to go! Otherwise, these references will be restored the first time you build the solution.
+![Restoring NuGet](assets/images/vs-restore-nuget.png)
+- Finally when compiling, a package folder will be created at `{YourSolutionName}/dist/{YourProjectName}`. If configuration mode is on `Debug`, this package folder will be copied to the Dynamo packages folder, following the below snippet for the `AfterBuild` target or similar:
 
 ```xml
 <PropertyGroup>
