@@ -1,6 +1,6 @@
 # Dynamo Development Starter Kit
 
-The set up of a project aiming the [Dynamo](http://dynamobim.org/) platform can be hard and frustating if not use to it. This project is a Visual Studio Extension (VSIX) containing templates for the set up of Dynamo package projects, providing boilerplates so you can just start developing your stuff.
+The set up of a project aiming the [Dynamo](http://dynamobim.org/) platform can be hard and frustrating if not use to it. This project is a Visual Studio Extension (VSIX) containing templates for the set up of Dynamo package projects, providing boilerplates so you can just start developing your stuff.
 
 ## Getting Started
 
@@ -83,7 +83,7 @@ The solution has 4 projects:
 - **DynamoDev.ExplicitNodes**: Contains the template to deploy a Dynamo package with nodes requiring UI customization.
 - **DynamoDev.ViewExtension**: Contains the template to deploy a Dynamo ViewExtension.
 
-On debugging, another instance of Visual Studion will open and the extension can be used.
+On debugging, another instance of Visual Studio will open and the extension can be used.
 On Release configuration mode, after being built the corresponding files will be copied to the `/dist` folder.
 
 ## License
