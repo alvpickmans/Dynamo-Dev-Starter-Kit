@@ -75,7 +75,6 @@
     <None Include="ProjectTemplate.csproj">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DynamoDev.ZeroTouch.ico" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="DynamoDev.ZeroTouch.vstemplate">
@@ -87,6 +86,7 @@
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DynamoDev.ZeroTouch.ico" />
     <Content Include="manifests\%24projectname%24_DynamoCustomization.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
