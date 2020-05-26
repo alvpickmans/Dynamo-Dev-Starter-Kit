@@ -1,4 +1,243 @@
-<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Configurations>Debug;Debug One;Debug Revit;Debug One Revit;Release</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Please remove the targets you don't need in order
+      to exclude Dynamo's versions your add-in won't support
+      use the list below for matching Revit version with .NET target
+              2.0  |  net46
+              2.3  |  net471
+              2.5  |  net472
+              2.6  |  net48
+      For example you can exclude Dynamo 2.0, by simply removing net45 target belows
+      -->
+    <TargetFrameworks>net46;net471;net472;net48</TargetFrameworks>
+    <RuntimeIdentifiers>win</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug One'">
+    <!-- You could debug just ONE addin version,
+         instead of building all the versions above.
+         Just put ONE target from the list above
+         e.g. if you want to debug ONLY Dynamo 2.5,
+         put net472 below and switch to 'Debug One' configuration
+      -->
+    <TargetFrameworks>net472</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <DynamoVersion>2.0</DynamoVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net471' ">
+    <DynamoVersion>2.3</DynamoVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net472' ">
+    <DynamoVersion>2.5</DynamoVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net48' ">
+    <DynamoVersion>2.6</DynamoVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Forcibly set platform to 'x64' and ignore architecture-related problems -->
+    <PlatformTarget>x64</PlatformTarget>
+    <Platforms>x64</Platforms>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+
+    <!-- Force the project to use the legacy debugger engine -->
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <DebugEngines>{351668CC-8477-4fbf-BFE3-5F1006E4DB1F}</DebugEngines>
+
+    <!-- Invert the behavior of new .csproj format - exclude files by default -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultItems>false</EnableDefaultItems>
+
+    <DynamoVersionSave>$([System.String]::Copy('$(DynamoVersion)').Replace('.', '_'))</DynamoVersionSave>
+
+    <!-- Define handy symbols to use in the code in order to accommodate different Dynamo versions,
+    e.g. by wrapping legacy / deprecated API calls with #if DYNAMO2_3 | DYNAMO2_5 -->
+    <DefineConstants>DYNAMO$(DynamoVersionSave);WINFORMS</DefineConstants>
+    <PreprocessorDefinitions>$(DefineConstants)</PreprocessorDefinitions>
+
+    <!-- Multiple targets can cause obj folder locking by concurrent builds -->
+    <BuildInParallel>false</BuildInParallel>
+
+    <!-- Override 'OutputPath' to Debug/Release + Dynamo version -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\bin\$(Configuration)\$(DynamoVersion)\$(Product)</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+    <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <OutputPath>..\bin\Debug\$(DynamoVersion)\$(Product)</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />  
+    <Reference Include="System.Xaml.dll" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(DefineConstants.Contains('WINFORMS'))">
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DynamoVisualProgramming.Core" Version="$(DynamoVersion).*" ExcludeAssets="runtime"/>
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="$(DynamoVersion).*" ExcludeAssets="runtime"/>
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="$(DynamoVersion).*" ExcludeAssets="runtime"/>
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="$(DynamoVersion).*" ExcludeAssets="runtime"/>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <!-- Pkg.json manifest is processed via MSBuild -->
+    <Content Include="manifest\pkg.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+
+    <Content Include="Properties\launchSettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+
+    <Content Include="extra\$projectname$_ViewExtensionDefinition.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$projectname$ViewExtension.cs" />
+    <Compile Include="ViewModels\$projectname$WindowViewModel.cs" />
+    <Compile Include="Views\$projectname$Window.xaml.cs">
+      <DependentUpon>$projectname$Window.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+    <ItemGroup>
+    <Page Include="Views\$projectname$Window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+
+    <Authors>$username$</Authors>
+    <Description>Custom Dynamo package</Description>
+    <PackageId>$guid5$</PackageId>
+    <Company>Acme Ltd</Company>
+    <RepositoryUrl>http://example.com/repositoryurl</RepositoryUrl>
+    <PackageProjectUrl>http://example.com/projecturl</PackageProjectUrl>
+    <Product>$projectname$</Product>
+    <Version>0.0.1</Version>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <Target Name="CreatePkgJson" AfterTargets="AfterBuild">
+    <ItemGroup>
+      <PkgJson Include="$(OutputPath)\pkg.json" />
+    </ItemGroup>
+    <ReplaceFileText InputFilename="manifest\pkg.json" OutputFilename="@(PkgJson)" MatchExpression="&quot;name&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;name&quot;: &quot;$(Product)&quot;" />
+    <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;version&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;version&quot;: &quot;$(Version)&quot;" />
+    <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;description&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;description&quot;: &quot;$(Description)&quot;" />
+    <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;engine_version&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;engine_version&quot;: &quot;$(DynamoVersion)&quot;" />
+    <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;site_url&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;site_url&quot;: &quot;$(PackageProjectUrl)&quot;" />
+    <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;repository_url&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;site_url&quot;: &quot;$(RepositoryUrl)&quot;" />
+
+  </Target>
+
+  <UsingTask Condition="'$(MSBuildRuntimeType)' == 'Full'" TaskName="ReplaceFileText" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+    <ParameterGroup>
+      <InputFilename ParameterType="System.String" Required="true" />
+      <OutputFilename ParameterType="System.String" Required="true" />
+      <MatchExpression ParameterType="System.String" Required="true" />
+      <ReplacementText ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="System.Core" />
+      <Using Namespace="System" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+              File.WriteAllText(OutputFilename,Regex.Replace(File.ReadAllText(InputFilename),MatchExpression,ReplacementText));
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+
+  <UsingTask Condition="'$(MSBuildRuntimeType)' == 'Core'" TaskName="ReplaceFileText" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <InputFilename ParameterType="System.String" Required="true" />
+      <OutputFilename ParameterType="System.String" Required="true" />
+      <MatchExpression ParameterType="System.String" Required="true" />
+      <ReplacementText ParameterType="System.String" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.Text.RegularExpressions" />
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+              File.WriteAllText(OutputFilename,Regex.Replace(File.ReadAllText(InputFilename),MatchExpression,ReplacementText));
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+
+  <PropertyGroup Condition="$(Configuration.Contains('Release'))">
+    <PackageFolder>$(ProjectDir)dist\$(Product)\</PackageFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+    <PackageFolder>$(AppData)\Dynamo\Dynamo Core\$(DynamoVersion)\packages\$(Product)\</PackageFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.Contains('Revit'))">
+    <PackageFolder>$(AppData)\Dynamo\Dynamo Revit\$(DynamoVersion)\packages\$(Product)\</PackageFolder>
+  </PropertyGroup>
+
+  <Target Name="CopyFilesToPackageFolder" AfterTargets="CreatePkgJson">
+    <PropertyGroup>
+      <BinFolder>$(PackageFolder)bin\</BinFolder>
+      <ExtraFolder>$(PackageFolder)extra\</ExtraFolder>
+      <DyfFolder>$(PackageFolder)dyf\</DyfFolder>
+    </PropertyGroup>
+    <ItemGroup>
+      <BinContent Include="$(OutputPath)**\*" Exclude="$(OutputPath)**\*pkg.json;$(OutputPath)\extra\**\*;$(OutputPath)\dyf\**\*;$(OutputPath)\bin\**\*"/>
+      <ExtraContent Include="$(OutputPath)\extra\**\*"/>
+      <DyfContent Include="$(OutputPath)\dyf\**\*"/>
+      <PkgJson Include="$(OutputPath)pkg.json" />
+      <CleanupContent Include="$(OutputPath)*" Exclude="$(OutputPath)*pkg.json" />
+    </ItemGroup>
+    <!-- Copy newly compiled add-in files to AppData folder (before starting the debugger) -->
+    <Message Importance="high" Text="Copying package to folder $(PackageFolder)" />
+
+    <Copy SourceFiles="@(BinContent)" DestinationFolder="$(OutputPath)\bin\%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
+    <Copy SourceFiles="@(BinContent)" DestinationFolder="$(BinFolder)%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
+    <Copy SourceFiles="@(ExtraContent)" DestinationFolder="$(ExtraFolder)%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
+    <Copy SourceFiles="@(DyfContent)" DestinationFolder="$(DyfFolder)%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
+    <Copy SourceFiles="@(PkgJson)" DestinationFolder="$(PackageFolder)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
+
+    <MakeDir Directories="$(ExtraFolder)" Condition="!Exists($(ExtraFolder))"></MakeDir>
+    <MakeDir Directories="$(DyfFolder)" Condition="!Exists($(DyfFolder))"></MakeDir>
+
+    <Delete Files="@(CleanupContent)" />
+  </Target>
+
+  <Target Name="CleanPackageData" AfterTargets="AfterClean" Condition="$(Configuration.Contains('Debug'))">
+    <!-- Delete previously deployed to Package folder -->
+    <RemoveDir Directories="@(PackageFolder)" />
+  </Target>
+</Project>
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
 		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -89,13 +328,13 @@
     <None Include="manifests\$projectname$_ViewExtensionDefinition.xml" />
   </ItemGroup>
 	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  --><!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
   </Target>
-  -->
+  --><!--
   <PropertyGroup>
     <DynamoVersion>$versionFolder$</DynamoVersion>
     <PackageName>$packageName$</PackageName>
@@ -130,7 +369,7 @@
       <DynamoCore>$(AppData)\Dynamo\Dynamo Core\$(DynamoVersion)\packages</DynamoCore>
       <DynamoRevit>$(AppData)\Dynamo\Dynamo Revit\$(DynamoVersion)\packages</DynamoRevit>
     </PropertyGroup>
-    <!--Copying to Package Folder-->
+    --><!--Copying to Package Folder--><!--
     <Message Importance="high" Text="Dynamo Core Package Folder = $(DynamoCore)" />
     <Message Importance="high" Text="Dynamo Revit Package Folder = $(DynamoRevit)" />
 
@@ -138,4 +377,4 @@
     <Copy SourceFiles="@(SourcePackage)" Condition="Exists($(DynamoRevit))" DestinationFolder="$(DynamoRevit)\$(PackageName)\%(RecursiveDir)" />
   </Target>
 
- </Project>
+ </Project>-->

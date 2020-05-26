@@ -14,25 +14,24 @@
   </TemplateData>
   <TemplateContent>    
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <Folder Name="dist" TargetFolderName="dist" />
-      <Folder Name="manifests" TargetFolderName="manifests">
+      <Folder Name="TemplateProperties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+      </Folder>
+      <Folder Name="manifest" TargetFolderName="manifest">
         <ProjectItem ReplaceParameters="true" TargetFileName="pkg.json">pkg.json</ProjectItem>
+      </Folder>
+      <Folder Name="extra" TargetFolderName="extra">
         <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$_ViewExtensionDefinition.xml">$projectname$_ViewExtensionDefinition.xml</ProjectItem>
       </Folder>
-      <Folder Name="src" TargetFolderName="src">
+      <Folder Name="Views" TargetFolderName="Views">
         <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$Window.xaml">$projectname$Window.xaml</ProjectItem>
         <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$Window.xaml.cs">$projectname$Window.xaml.cs</ProjectItem>
-        <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$ViewExtension.cs">$projectname$ViewExtension.cs</ProjectItem>
+      </Folder>      
+      <Folder Name="ViewModels" TargetFolderName="ViewModels">
         <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$WindowViewModel.cs">$projectname$WindowViewModel.cs</ProjectItem>
       </Folder>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$projectname$ViewExtension.cs">$projectname$ViewExtension.cs</ProjectItem>
     </Project>
-    <CustomParameters>
-      <CustomParameter Name="$dynamoprojecttype$" Value="ViewExtension"/>
-    </CustomParameters>
   </TemplateContent>
-  <WizardExtension>
-    <Assembly>DynamoDev.StarterKitExtension, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9ab483fc762af72c</Assembly>
-    <FullClassName>DynamoDev.StarterKitExtension.WizardRoot</FullClassName>
-  </WizardExtension>
 </VSTemplate>

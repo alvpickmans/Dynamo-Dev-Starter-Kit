@@ -58,32 +58,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="src\%24projectname%24Window.xaml.cs">
+    <None Include="TemplateProperties\launchSettings.json" />
+    <None Include="Views\%24projectname%24Window.xaml.cs">
       <DependentUpon>%24projectname%24Window.xaml</DependentUpon>
     </None>
-    <None Include="src\%24projectname%24WindowViewModel.cs" />
+    <None Include="ViewModels\%24projectname%24WindowViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AssemblyInfo.cs" />
-    <None Include="src\%24projectname%24ViewExtension.cs" />
+    <None Include="TemplateProperties\AssemblyInfo.cs" />
+    <None Include="%24projectname%24ViewExtension.cs" />
     <None Include="ProjectTemplate.csproj">
       <SubType>Designer</SubType>
     </None>
-    <None Include="manifests\pkg.json" />
+    <None Include="manifest\pkg.json" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="DynamoDev.ViewExtension.vstemplate">
       <SubType>Designer</SubType>
     </VSTemplate>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="dist\" />
+    <None Include="extra\%24projectname%24_ViewExtensionDefinition.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="manifests\%24projectname%24_ViewExtensionDefinition.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\%24projectname%24Window.xaml">
+    <None Include="Views\%24projectname%24Window.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </None>

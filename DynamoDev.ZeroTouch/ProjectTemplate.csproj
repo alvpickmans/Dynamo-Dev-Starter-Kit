@@ -78,7 +78,8 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsBase" />  
+    <Reference Include="System.Xaml.dll" />
   </ItemGroup>
 
   <ItemGroup Condition="$(DefineConstants.Contains('WINFORMS'))">
@@ -195,7 +196,7 @@
       <DyfFolder>$(PackageFolder)dyf\</DyfFolder>
     </PropertyGroup>
     <ItemGroup>
-      <BinContent Include="$(OutputPath)**\*" Exclude="$(OutputPath)**\*pkg.json;$(OutputPath)\extra\**\*;$(OutputPath)\dyf\**\*"/>
+      <BinContent Include="$(OutputPath)**\*" Exclude="$(OutputPath)**\*pkg.json;$(OutputPath)\extra\**\*;$(OutputPath)\dyf\**\*;$(OutputPath)\bin\**\*"/>
       <ExtraContent Include="$(OutputPath)\extra\**\*"/>
       <DyfContent Include="$(OutputPath)\dyf\**\*"/>
       <PkgJson Include="$(OutputPath)pkg.json" />
