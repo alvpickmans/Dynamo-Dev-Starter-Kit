@@ -69,25 +69,29 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AssemblyInfo.cs" />
+    <None Include="TemplateProperties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="HelloDynamo.cs" />
-    <None Include="manifests\pkg.json" />
+    <None Include="manifest\pkg.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="ProjectTemplate.csproj">
       <SubType>Designer</SubType>
     </None>
+    <None Include="TemplateProperties\launchSettings.json" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="DynamoDev.ZeroTouch.vstemplate">
       <SubType>Designer</SubType>
     </VSTemplate>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="dist\" />
-    <Folder Include="src\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DynamoDev.ZeroTouch.ico" />
-    <Content Include="manifests\%24projectname%24_DynamoCustomization.xml" />
+    <Content Include="DynamoDev.ZeroTouch.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="extra\%24projectname%24_DynamoCustomization.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

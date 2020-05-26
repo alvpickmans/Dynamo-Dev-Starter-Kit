@@ -19,7 +19,7 @@ namespace $safeprojectname$
   /// <returns>A greeting</returns>
   public static string SayHello(string name)
       {
-          return String.Format("Hello {0}!", name);
+          return $"Hello {name}!";
       }
   }
 }

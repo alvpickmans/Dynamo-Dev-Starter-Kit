@@ -14,7 +14,5 @@
   "site_url": "$siteUrl$",
   "repository_url": "$repoUrl$",
   "contains_binaries": true,
-  "node_libraries": [
-    $nodeLibraries$
-  ]
+  "node_libraries": []
 }

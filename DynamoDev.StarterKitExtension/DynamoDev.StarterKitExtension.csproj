@@ -59,8 +59,6 @@
       <DependentUpon>PackageDefinitionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PackageDefinitionViewModel.cs" />
-    <Compile Include="WizardRoot.cs" />
-    <Compile Include="WizardCustomNodeChild.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />

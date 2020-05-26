@@ -14,26 +14,17 @@
   </TemplateData>
   <TemplateContent>    
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="src\HelloDynamo.cs" OpenInEditor="true">HelloDynamo.cs</ProjectItem>
-      <Folder Name="dist" TargetFolderName="dist" />
-      <Folder Name="manifests" TargetFolderName="manifests">
+      <ProjectItem ReplaceParameters="true" TargetFileName="HelloDynamo.cs" OpenInEditor="true">HelloDynamo.cs</ProjectItem>
+      <Folder Name="TemplateProperties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+      </Folder>
+      <Folder Name="manifest" TargetFolderName="manifest">
         <ProjectItem ReplaceParameters="true" TargetFileName="pkg.json">pkg.json</ProjectItem>
+      </Folder>
+      <Folder Name="extra" TargetFolderName="extra">
         <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$_DynamoCustomization.xml">$projectname$_DynamoCustomization.xml</ProjectItem>
       </Folder>
-      <Folder Name="src" TargetFolderName="src">
-      </Folder>
     </Project>
-    <CustomParameters>
-      <CustomParameter Name="$dynamoprojecttype$" Value="ZeroTouch"/>
-    </CustomParameters>
   </TemplateContent>
-  <WizardExtension>
-    <Assembly>DynamoDev.StarterKitExtension, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9ab483fc762af72c</Assembly>
-    <FullClassName>DynamoDev.StarterKitExtension.WizardRoot</FullClassName>
-  </WizardExtension>
-  <!--<WizardExtension>
-    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
-    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
-  </WizardExtension>-->
 </VSTemplate>
