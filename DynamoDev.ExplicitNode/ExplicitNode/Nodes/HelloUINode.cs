@@ -6,13 +6,13 @@ $endif$using System.Text;
 using Dynamo.Graph.Nodes;
 using Newtonsoft.Json;
 using ProtoCore.AST.AssociativeAST;
-using $saferootprojectname$;
+using $projectname$.Functions;
 
-namespace $saferootprojectname$.UI.Nodes
+namespace $projectname$.Nodes
 {
   [NodeName("HelloUI")]
   [NodeDescription("Sample Explicit Node")]
-  [NodeCategory("$saferootprojectname$.Sample Nodes")]
+  [NodeCategory("$projectname$.Sample Nodes")]
   [IsDesignScriptCompatible]
 public class HelloUINode : NodeModel
 {

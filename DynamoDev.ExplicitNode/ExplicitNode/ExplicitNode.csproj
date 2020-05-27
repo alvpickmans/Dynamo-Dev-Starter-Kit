@@ -107,14 +107,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="$projectname$ViewExtension.cs" />
     <Compile Include="Nodes\HelloUINode.cs" />
     <Compile Include="Views\HelloUINodeView.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\$saferootprojectname$\$saferootprojectname$.csproj">
-      <Name>$saferootprojectname$</Name>
+    <ProjectReference Include="..\$projectname$.Functions\$projectname$.Functions.csproj">
+      <Name>$projectname$</Name>
     </ProjectReference>
   </ItemGroup>
 
@@ -240,8 +239,8 @@
 		<ProjectGuid>$guid1$</ProjectGuid>
 		<OutputType>Library</OutputType>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<RootNamespace>$saferootprojectname$.UI</RootNamespace>
-		<AssemblyName>$saferootprojectname$.UI</AssemblyName>
+		<RootNamespace>$projectname$.UI</RootNamespace>
+		<AssemblyName>$projectname$.UI</AssemblyName>
 		<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
 		<StartAction>Program</StartAction>
 		<StartProgram>$startProgramPath$</StartProgram>
@@ -299,8 +298,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\$saferootprojectname$\$saferootprojectname$.csproj">
-      <Name>$saferootprojectname$</Name>
+    <ProjectReference Include="..\$projectname$\$projectname$.csproj">
+      <Name>$projectname$</Name>
     </ProjectReference>
   </ItemGroup>
   

@@ -17,7 +17,7 @@
       <Folder Name="TemplateProperties" TargetFolderName="Properties">
         <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       </Folder>
-	    <ProjectItem ReplaceParameters="true" OpenInEditor="true">Functions.cs</ProjectItem>
+	    <ProjectItem ReplaceParameters="true" OpenInEditor="true">StringExtensions.cs</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>

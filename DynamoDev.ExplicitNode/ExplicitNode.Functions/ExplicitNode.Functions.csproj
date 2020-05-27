@@ -17,17 +17,7 @@
     <TargetFrameworks>net46;net471;net472;net48</TargetFrameworks>
     <RuntimeIdentifiers>win</RuntimeIdentifiers>
   </PropertyGroup>
-
-  <PropertyGroup Condition="$(Configuration.Contains('Debug One'))">
-    <!-- You could debug just ONE addin version,
-         instead of building all the versions above.
-         Just put ONE target from the list above
-         e.g. if you want to debug ONLY Dynamo 2.5,
-         put net472 below and switch to 'Debug One' configuration
-      -->
-    <TargetFrameworks>net472</TargetFrameworks>
-  </PropertyGroup>
-
+  
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net46' ">
     <DynamoVersion>2.0</DynamoVersion>
   </PropertyGroup>
@@ -87,7 +77,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="HelloDynamo.cs" />
+    <Compile Include="StringExtensions.cs" />
   </ItemGroup>
 </Project>
 
@@ -103,8 +93,8 @@
 		<ProjectGuid>$guid1$</ProjectGuid>
 		<OutputType>Library</OutputType>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<RootNamespace>$saferootprojectname$.Functions</RootNamespace>
-		<AssemblyName>$saferootprojectname$.Functions</AssemblyName>
+		<RootNamespace>$projectname$.Functions</RootNamespace>
+		<AssemblyName>$projectname$.Functions</AssemblyName>
 		<TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
 		<FileAlignment>512</FileAlignment>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>

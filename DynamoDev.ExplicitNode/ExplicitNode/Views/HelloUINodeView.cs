@@ -8,19 +8,19 @@ using Dynamo.Wpf;
 using Dynamo.ViewModels;
 using System.Windows.Controls;
 using System.Windows;
-using $saferootprojectname$;
-using $saferootprojectname$.UI.Nodes;
+using $projectname$.Functions;
+using $projectname$.Nodes;
 
 
-namespace $saferootprojectname$.UI.Views
+namespace $projectname$.Views
 {
   public class HelloUINodeView : INodeViewCustomization<HelloUINode>
   {
     private DynamoViewModel _dynamoVM;
     private NodeView _nodeview;
-    private HelloUI _model;
+    private HelloUINode _model;
 
-  public void CustomizeView(HelloUI model, NodeView nodeView)
+  public void CustomizeView(HelloUINode model, NodeView nodeView)
     {
     _dynamoVM = nodeView.ViewModel.DynamoViewModel;
     _nodeview = nodeView;
@@ -37,12 +37,13 @@ namespace $saferootprojectname$.UI.Views
     nodeView.inputGrid.Children.Add(button);
   }
 
-  private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
-  {
-    MessageBox.Show("Hello there!");
-  }
+    private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+    {
+        var message = "Hello there!".ToUpperCaseCustom();
+        MessageBox.Show(message);
+    }
 
-  public void Dispose()
+    public void Dispose()
     {
     }
   }

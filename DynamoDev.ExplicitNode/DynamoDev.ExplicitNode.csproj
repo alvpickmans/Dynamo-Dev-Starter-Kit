@@ -63,7 +63,7 @@
     <None Include="ExplicitNode\TemplateProperties\AssemblyInfo.cs" />
     <None Include="ExplicitNode\TemplateProperties\launchSettings.json" />
     <None Include="ExplicitNode.Functions\TemplateProperties\AssemblyInfo.cs" />
-    <None Include="ExplicitNode.Functions\Functions.cs" />
+    <None Include="ExplicitNode.Functions\StringExtensions.cs" />
     <None Include="ExplicitNode\Views\HelloUINodeView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,12 +73,12 @@
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExplicitNode\ExplicitNode.UI.csproj">
+    <None Include="ExplicitNode\ExplicitNode.csproj">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ExplicitNode\ExplicitNode.UI.vstemplate">
+    <VSTemplate Include="ExplicitNode\ExplicitNode.vstemplate">
       <SubType>Designer</SubType>
     </VSTemplate>
   </ItemGroup>
