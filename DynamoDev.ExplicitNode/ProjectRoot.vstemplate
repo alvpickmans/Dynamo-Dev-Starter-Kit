@@ -23,12 +23,5 @@
         ExplicitNode\ExplicitNode.vstemplate
       </ProjectTemplateLink>
     </ProjectCollection>
-    <CustomParameters>
-      <CustomParameter Name="$dynamoprojecttype$" Value="ExplicitNode"/>
-    </CustomParameters>
   </TemplateContent>
-  <WizardExtension>
-    <Assembly>DynamoDev.StarterKitExtension, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9ab483fc762af72c</Assembly>
-    <FullClassName>DynamoDev.StarterKitExtension.WizardRoot</FullClassName>
-  </WizardExtension>
 </VSTemplate>

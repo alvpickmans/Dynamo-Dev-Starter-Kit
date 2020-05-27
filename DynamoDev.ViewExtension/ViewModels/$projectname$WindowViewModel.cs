@@ -3,7 +3,7 @@ using Dynamo.Core;
 using Dynamo.Extensions;
 using Dynamo.Graph.Nodes;
 
-namespace $safeprojectname$
+namespace $safeprojectname$.ViewModels
 {
     public class $projectname$WindowViewModel : NotificationObject, IDisposable
     {

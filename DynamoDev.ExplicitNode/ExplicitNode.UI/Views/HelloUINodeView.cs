@@ -9,11 +9,12 @@ using Dynamo.ViewModels;
 using System.Windows.Controls;
 using System.Windows;
 using $saferootprojectname$;
+using $saferootprojectname$.UI.Nodes;
 
 
-namespace $saferootprojectname$.UI
+namespace $saferootprojectname$.UI.Views
 {
-  public class HelloUINodeView : INodeViewCustomization<HelloUI>
+  public class HelloUINodeView : INodeViewCustomization<HelloUINode>
   {
     private DynamoViewModel _dynamoVM;
     private NodeView _nodeview;

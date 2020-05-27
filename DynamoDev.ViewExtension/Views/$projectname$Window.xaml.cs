@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace $safeprojectname$
+namespace $safeprojectname$.Views
 {
     /// <summary>
     /// Interaction logic for $projectname$Window.xaml

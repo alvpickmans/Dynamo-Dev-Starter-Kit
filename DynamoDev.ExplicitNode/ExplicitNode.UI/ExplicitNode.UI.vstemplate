@@ -14,20 +14,19 @@
   </TemplateData>
   <TemplateContent>
     <Project File="ExplicitNode.UI.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUI.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUINodeView.cs</ProjectItem>
+      <Folder Name="TemplateProperties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+      </Folder>
+      <Folder Name="Nodes" TargetFolderName="Nodes">
+        <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUINode.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Views" TargetFolderName="Views">
+        <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUINodeView.cs</ProjectItem>
+      </Folder>
 		<Folder Name="manifests" TargetFolderName="manifests">
 			<ProjectItem ReplaceParameters="true" TargetFileName="pkg.json">pkg.json</ProjectItem>
 		</Folder>
     </Project>
   </TemplateContent>
-  <WizardExtension>
-    <Assembly>DynamoDev.StarterKitExtension, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=9ab483fc762af72c</Assembly>
-    <FullClassName>DynamoDev.StarterKitExtension.WizardCustomNodeChild</FullClassName>
-  </WizardExtension>
-  <WizardExtension>
-    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
-    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
-  </WizardExtension>
 </VSTemplate>

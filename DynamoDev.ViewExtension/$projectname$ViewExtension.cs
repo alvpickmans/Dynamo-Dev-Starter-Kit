@@ -5,6 +5,8 @@ $endif$using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using Dynamo.Wpf.Extensions;
+using $safeprojectname$.ViewModels;
+using $safeprojectname$.Views;
 
 namespace $safeprojectname$
 {

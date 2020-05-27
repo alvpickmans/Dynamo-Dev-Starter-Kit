@@ -8,13 +8,13 @@ using Newtonsoft.Json;
 using ProtoCore.AST.AssociativeAST;
 using $saferootprojectname$;
 
-namespace $saferootprojectname$.UI
+namespace $saferootprojectname$.UI.Nodes
 {
   [NodeName("HelloUI")]
   [NodeDescription("Sample Explicit Node")]
   [NodeCategory("$saferootprojectname$.Sample Nodes")]
   [IsDesignScriptCompatible]
-public class HelloUI : NodeModel
+public class HelloUINode : NodeModel
 {
     
   /// <summary>
@@ -23,7 +23,7 @@ public class HelloUI : NodeModel
   /// <param name="inPorts"></param>
   /// <param name="outPorts"></param>
   [JsonConstructor]
-  private HelloUI(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base(inPorts, outPorts)
+  private HelloUINode(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base(inPorts, outPorts)
   {
 
   }
@@ -31,7 +31,7 @@ public class HelloUI : NodeModel
   /// <summary>
   /// Constructor for nodes.
   /// </summary>
-  public HelloUI()
+  public HelloUINode()
   {
       RegisterAllPorts();
   }
