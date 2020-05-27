@@ -16,8 +16,8 @@
   </TemplateData>
   <TemplateContent>
     <ProjectCollection>
-      <ProjectTemplateLink ProjectName="$projectname$.UI">
-        ExplicitNode.UI\ExplicitNode.UI.vstemplate
+      <ProjectTemplateLink ProjectName="$projectname$.Functions">
+        ExplicitNode.UI\ExplicitNode.Functions.vstemplate
       </ProjectTemplateLink>
       <ProjectTemplateLink ProjectName="$projectname$">
         ExplicitNode\ExplicitNode.vstemplate

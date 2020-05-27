@@ -58,13 +58,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExplicitNode.UI\manifests\pkg.json" />
-    <None Include="ExplicitNode.UI\Nodes\HelloUINode.cs" />
-    <None Include="ExplicitNode.UI\TemplateProperties\AssemblyInfo.cs" />
-    <None Include="ExplicitNode.UI\TemplateProperties\launchSettings.json" />
+    <None Include="ExplicitNode\manifests\pkg.json" />
+    <None Include="ExplicitNode\Nodes\HelloUINode.cs" />
     <None Include="ExplicitNode\TemplateProperties\AssemblyInfo.cs" />
-    <None Include="ExplicitNode\Functions.cs" />
-    <None Include="ExplicitNode.UI\Views\HelloUINodeView.cs" />
+    <None Include="ExplicitNode\TemplateProperties\launchSettings.json" />
+    <None Include="ExplicitNode.Functions\TemplateProperties\AssemblyInfo.cs" />
+    <None Include="ExplicitNode.Functions\Functions.cs" />
+    <None Include="ExplicitNode\Views\HelloUINodeView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,20 +73,20 @@
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExplicitNode.UI\ExplicitNode.UI.csproj">
+    <None Include="ExplicitNode\ExplicitNode.UI.csproj">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ExplicitNode.UI\ExplicitNode.UI.vstemplate">
+    <VSTemplate Include="ExplicitNode\ExplicitNode.UI.vstemplate">
       <SubType>Designer</SubType>
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ExplicitNode\ExplicitNode.vstemplate" />
+    <VSTemplate Include="ExplicitNode.Functions\ExplicitNode.Functions.vstemplate" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExplicitNode\ExplicitNode.csproj" />
+    <None Include="ExplicitNode.Functions\ExplicitNode.Functions.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DynamoDev.ExplicitNode.ico" />

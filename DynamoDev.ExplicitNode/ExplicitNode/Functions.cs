@@ -4,7 +4,7 @@ $if$ ($targetframeworkversion$ >= 3.5)using System.Linq;
 $endif$using System.Text;
 using Autodesk.DesignScript.Runtime;
 
-namespace $saferootprojectname$
+namespace $saferootprojectname$.Functions
 {
 	[IsVisibleInDynamoLibrary(false)]
   public static class Functions

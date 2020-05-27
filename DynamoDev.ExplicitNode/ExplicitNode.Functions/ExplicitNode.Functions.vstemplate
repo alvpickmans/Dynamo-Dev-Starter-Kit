@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>ExplicitNode</Name>
-    <Description>ExplicitNode</Description>
+    <Name>ExplicitNode.Functions</Name>
+    <Description>Functions for ExplicitNode project</Description>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
@@ -13,7 +13,7 @@
     <Hidden>true</Hidden>
   </TemplateData>
   <TemplateContent>
-    <Project File="ExplicitNode.csproj" ReplaceParameters="true">
+    <Project File="ExplicitNode.Functions.csproj" ReplaceParameters="true">
       <Folder Name="TemplateProperties" TargetFolderName="Properties">
         <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       </Folder>

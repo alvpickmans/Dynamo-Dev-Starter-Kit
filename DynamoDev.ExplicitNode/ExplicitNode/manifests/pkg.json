@@ -14,5 +14,8 @@
   "site_url": "{REPLACED ON BUILD}",
   "repository_url": "{REPLACED ON BUILD}",
   "contains_binaries": true,
-  "node_libraries": []
+  "node_libraries": [
+    "$projectname$, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "$projectname$.Functions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
 }
