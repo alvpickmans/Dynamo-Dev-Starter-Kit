@@ -24,7 +24,7 @@
       <Folder Name="Views" TargetFolderName="Views">
         <ProjectItem ReplaceParameters="true" OpenInEditor="true">HelloUINodeView.cs</ProjectItem>
       </Folder>
-		<Folder Name="manifests" TargetFolderName="manifests">
+		<Folder Name="manifest" TargetFolderName="manifest">
 			<ProjectItem ReplaceParameters="true" TargetFileName="pkg.json">pkg.json</ProjectItem>
 		</Folder>
     </Project>

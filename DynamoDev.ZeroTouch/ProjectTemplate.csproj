@@ -136,7 +136,7 @@
     <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;description&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;description&quot;: &quot;$(Description)&quot;" />
     <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;engine_version&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;engine_version&quot;: &quot;$(DynamoVersion)&quot;" />
     <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;site_url&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;site_url&quot;: &quot;$(PackageProjectUrl)&quot;" />
-    <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;repository_url&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;site_url&quot;: &quot;$(RepositoryUrl)&quot;" />
+    <ReplaceFileText InputFilename="@(PkgJson)" OutputFilename="@(PkgJson)" MatchExpression="&quot;repository_url&quot;: &quot;(.*?)&quot;" ReplacementText="&quot;repository_url&quot;: &quot;$(RepositoryUrl)&quot;" />
 
   </Target>
 
@@ -189,23 +189,25 @@
     <PackageFolder>$(AppData)\Dynamo\Dynamo Revit\$(DynamoVersion)\packages\$(Product)\</PackageFolder>
   </PropertyGroup>
 
-  <Target Name="CopyFilesToPackageFolder" AfterTargets="CreatePkgJson">
+  <Target Name="ClearTargetFolder" AfterTargets="CreatePkgJson" Condition="$(Configuration.Contains('Debug'))">
+    <RemoveDir Directories="$(PackageFolder)" />
+  </Target>
+
+  <Target Name="CopyFilesToPackageFolder" AfterTargets="ClearTargetFolder" >
     <PropertyGroup>
       <BinFolder>$(PackageFolder)bin\</BinFolder>
       <ExtraFolder>$(PackageFolder)extra\</ExtraFolder>
       <DyfFolder>$(PackageFolder)dyf\</DyfFolder>
     </PropertyGroup>
     <ItemGroup>
-      <BinContent Include="$(OutputPath)**\*" Exclude="$(OutputPath)**\*pkg.json;$(OutputPath)\extra\**\*;$(OutputPath)\dyf\**\*;$(OutputPath)\bin\**\*"/>
+      <BinContent Include="$(OutputPath)**\*" Exclude="$(OutputPath)**\*pkg.json;$(OutputPath)\extra\**\*;$(OutputPath)\dyf\**\*;$(OutputPath)\$(TargetFramework)\**\*"/>
       <ExtraContent Include="$(OutputPath)\extra\**\*"/>
       <DyfContent Include="$(OutputPath)\dyf\**\*"/>
       <PkgJson Include="$(OutputPath)pkg.json" />
-      <CleanupContent Include="$(OutputPath)*" Exclude="$(OutputPath)*pkg.json" />
     </ItemGroup>
     <!-- Copy newly compiled add-in files to AppData folder (before starting the debugger) -->
     <Message Importance="high" Text="Copying package to folder $(PackageFolder)" />
 
-    <Copy SourceFiles="@(BinContent)" DestinationFolder="$(OutputPath)\bin\%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
     <Copy SourceFiles="@(BinContent)" DestinationFolder="$(BinFolder)%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
     <Copy SourceFiles="@(ExtraContent)" DestinationFolder="$(ExtraFolder)%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
     <Copy SourceFiles="@(DyfContent)" DestinationFolder="$(DyfFolder)%(RecursiveDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" Retries="3" RetryDelayMilliseconds="300" />
@@ -213,8 +215,6 @@
 
     <MakeDir Directories="$(ExtraFolder)" Condition="!Exists($(ExtraFolder))"></MakeDir>
     <MakeDir Directories="$(DyfFolder)" Condition="!Exists($(DyfFolder))"></MakeDir>
-
-    <Delete Files="@(CleanupContent)" />
   </Target>
 
   <Target Name="CleanPackageData" AfterTargets="AfterClean" Condition="$(Configuration.Contains('Debug'))">

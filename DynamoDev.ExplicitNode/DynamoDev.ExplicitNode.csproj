@@ -58,7 +58,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExplicitNode\manifests\pkg.json" />
+    <None Include="ExplicitNode\manifest\pkg.json" />
     <None Include="ExplicitNode\Nodes\HelloUINode.cs" />
     <None Include="ExplicitNode\TemplateProperties\AssemblyInfo.cs" />
     <None Include="ExplicitNode\TemplateProperties\launchSettings.json" />

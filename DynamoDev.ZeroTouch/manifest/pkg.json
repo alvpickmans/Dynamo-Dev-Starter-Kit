@@ -1,18 +1,20 @@
 ﻿{
   "license": "",
   "file_hash": null,
-  "name": "{REPLACED ON BUILD}",
-  "version": "{REPLACED ON BUILD}",
-  "description": "{REPLACED ON BUILD}",
+  "name": "{Replaced with Properties Product field}",
+  "version": "{Replaced with Properties Version field}",
+  "description": "{Replaced with Properties Description field}",
   "group": "",
   "keywords": null,
   "dependencies": [],
   "contents": "",
-  "engine_version": "{REPLACED ON BUILD}",
+  "engine_version": "{Replaced with Dynamo Version}",
   "engine": "dynamo",
   "engine_metadata": "",
-  "site_url": "{REPLACED ON BUILD}",
-  "repository_url": "{REPLACED ON BUILD}",
+  "site_url": "{Replaced with Properties PackageProjectUrl field}",
+  "repository_url": "{Replaced with Properties RepositoryUrl field}",
   "contains_binaries": true,
-  "node_libraries": []
+  "node_libraries": [
+    "$projectname$, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
 }
